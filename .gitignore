@@ -1,0 +1,8 @@
+# Ignorar todos los ficheros...
+www/temp/
+metadatos_compilados/
+nbproject/
+temp/
+www/aplicacion.php
+# ...excepto el fichero .gitignore
+!.gitignore
