@@ -59,6 +59,7 @@ class co_parametros
                         apellido || ', ' || nombres as nombre_completo
 		FROM responsables_operadores LEFT OUTER JOIN operadores ON responsables_operadores.operador = operadores.operador
 		WHERE responsable = $responsable
+                    ORDER BY nombre_completo
         ";
 	return toba::db()->consultar($sql);
     }     
