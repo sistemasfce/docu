@@ -28,7 +28,7 @@ class ci_modificar_entrada extends docu_ci
 	function evt__cuadro__seleccion($seleccion)
 	{
 		$this->relacion()->cargar($seleccion);
-		$this->set_pantalla('edicion');
+		$this->set_pantalla('pant_edicion');
 	}    
 	
 	//-----------------------------------------------------------------------------------
@@ -59,12 +59,12 @@ class ci_modificar_entrada extends docu_ci
 	{
 		$this->dep('relacion')->sincronizar();
 		$this->dep('relacion')->resetear();
-		$this->set_pantalla('seleccion');
+		$this->set_pantalla('pant_seleccion');
 	}
 
 	function evt__cancelar()
 	{
 		$this->dep('relacion')->resetear();
-		$this->set_pantalla('seleccion');
+		$this->set_pantalla('pant_seleccion');
 	}  
 }

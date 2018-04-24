@@ -90,7 +90,7 @@ INSERT INTO apex_objeto_eventos (proyecto, evento_id, objeto, identificador, eti
 	NULL, --confirmacion
 	NULL, --estilo
 	'apex', --imagen_recurso_origen
-	NULL, --imagen
+	'deshacer.png', --imagen
 	'1', --en_botonera
 	NULL, --ayuda
 	'2', --orden
@@ -204,7 +204,7 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	'docu', --objeto_ci_proyecto
 	'280000588', --objeto_ci
 	'280000184', --pantalla
-	'seleccion', --identificador
+	'pant_seleccion', --identificador
 	'1', --orden
 	'Selección', --etiqueta
 	NULL, --descripcion
@@ -223,7 +223,7 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	'docu', --objeto_ci_proyecto
 	'280000588', --objeto_ci
 	'280000185', --pantalla
-	'edicion', --identificador
+	'pant_edicion', --identificador
 	'2', --orden
 	'Edición', --etiqueta
 	NULL, --descripcion
