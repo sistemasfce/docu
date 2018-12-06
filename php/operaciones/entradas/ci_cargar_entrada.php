@@ -33,8 +33,10 @@ class ci_cargar_entrada extends docu_ci
         try {
             $this->dep('relacion')->sincronizar();
             $this->dep('relacion')->resetear();
+            $datos = toba::consulta_php('co_entradas')->get_ultimo_numero();
+            toba::notificacion()->agregar('Entrada registrada con N° '.$datos['numero'], 'info');
         }catch (toba_error $e) {
-            toba::notificacion()->agregar('No se puede eliminar el registro', 'error');
+            toba::notificacion()->agregar('No se puede insertar el registro', 'error');
         }
     }
 

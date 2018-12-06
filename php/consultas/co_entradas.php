@@ -15,4 +15,10 @@ class co_entradas
         ";
 	return toba::db()->consultar($sql);
     }
+    
+    function get_ultimo_numero()
+    {
+        $sql = "SELECT numero FROM entradas WHERE numero <> '' ORDER BY entrada DESC LIMIT 1";
+        return toba::db()->consultar_fila($sql);
+    }
 }
