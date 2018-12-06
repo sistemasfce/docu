@@ -75,4 +75,52 @@ INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objet
 	NULL, --inicializar
 	'1'  --orden
 );
+INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objeto_proveedor, identificador, parametros_a, parametros_b, parametros_c, inicializar, orden) VALUES (
+	'docu', --proyecto
+	'280000626', --dep_id
+	'280000582', --objeto_consumidor
+	'280000580', --objeto_proveedor
+	'pases', --identificador
+	NULL, --parametros_a
+	NULL, --parametros_b
+	NULL, --parametros_c
+	NULL, --inicializar
+	'2'  --orden
+);
 --- FIN Grupo de desarrollo 280
+
+------------------------------------------------------------
+-- apex_objeto_datos_rel_asoc
+------------------------------------------------------------
+
+--- INICIO Grupo de desarrollo 280
+INSERT INTO apex_objeto_datos_rel_asoc (proyecto, objeto, asoc_id, identificador, padre_proyecto, padre_objeto, padre_id, padre_clave, hijo_proyecto, hijo_objeto, hijo_id, hijo_clave, cascada, orden) VALUES (
+	'docu', --proyecto
+	'280000582', --objeto
+	'280000052', --asoc_id
+	NULL, --identificador
+	'docu', --padre_proyecto
+	'280000579', --padre_objeto
+	'entradas', --padre_id
+	NULL, --padre_clave
+	'docu', --hijo_proyecto
+	'280000580', --hijo_objeto
+	'pases', --hijo_id
+	NULL, --hijo_clave
+	NULL, --cascada
+	'1'  --orden
+);
+--- FIN Grupo de desarrollo 280
+
+------------------------------------------------------------
+-- apex_objeto_rel_columnas_asoc
+------------------------------------------------------------
+INSERT INTO apex_objeto_rel_columnas_asoc (proyecto, objeto, asoc_id, padre_objeto, padre_clave, hijo_objeto, hijo_clave) VALUES (
+	'docu', --proyecto
+	'280000582', --objeto
+	'280000052', --asoc_id
+	'280000579', --padre_objeto
+	'280000905', --padre_clave
+	'280000580', --hijo_objeto
+	'280000916'  --hijo_clave
+);

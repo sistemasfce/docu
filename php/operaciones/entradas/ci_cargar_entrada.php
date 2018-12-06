@@ -19,6 +19,15 @@ class ci_cargar_entrada extends docu_ci
         $this->tabla('entradas')->set($datos);
     }
 
+    //--------------------------------------------------------------------------
+    //---- form_ml -------------------------------------------------------------
+    //--------------------------------------------------------------------------
+
+    function evt__form_ml__modificacion($datos)
+    {
+        $this->tabla('pases')->procesar_filas($datos);
+    } 
+    
     function evt__procesar()
     {
         try {
@@ -32,6 +41,5 @@ class ci_cargar_entrada extends docu_ci
     function evt__cancelar()
     {
         $this->dep('relacion')->resetear();
-    }          
+    }
 }
-
