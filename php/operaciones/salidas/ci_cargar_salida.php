@@ -1,6 +1,6 @@
 <?php
 
-class ci_cargar_entrada extends docu_ci
+class ci_cargar_salida extends docu_ci
 {
     //-------------------------------------------------------------------------
     function relacion()
@@ -16,7 +16,7 @@ class ci_cargar_entrada extends docu_ci
 
     function evt__form__modificacion($datos)
     {
-        $this->tabla('entradas')->set($datos);
+        $this->tabla('salidas')->set($datos);
     }
 
     function evt__procesar()
@@ -34,4 +34,3 @@ class ci_cargar_entrada extends docu_ci
         $this->dep('relacion')->resetear();
     }          
 }
-
