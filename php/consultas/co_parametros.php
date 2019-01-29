@@ -103,4 +103,14 @@ class co_parametros
         ";
 	return toba::db()->consultar($sql);
     }     
+    
+    function get_ciclos_lectivos($where=null)
+    {
+	if (!isset($where)) $where = '1=1';
+        $sql = "SELECT *
+		FROM ciclos_lectivos
+		WHERE $where
+        ";
+	return toba::db()->consultar($sql);
+    }      
 }
