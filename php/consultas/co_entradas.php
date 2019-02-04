@@ -11,7 +11,7 @@ class co_entradas
 		FROM entradas LEFT OUTER JOIN destinos ON (entradas.destino = destinos.destino)
                 LEFT OUTER JOIN entradas_tipos ON (entradas.entrada_tipo = entradas_tipos.entrada_tipo)
 		WHERE $where
-                ORDER BY fecha DESC
+                ORDER BY fecha DESC, numero
         ";
 	return toba::db()->consultar($sql);
     }
