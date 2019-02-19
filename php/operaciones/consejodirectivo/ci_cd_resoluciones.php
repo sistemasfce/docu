@@ -22,6 +22,7 @@ class ci_cd_resoluciones extends docu_ci
         $aux = array();
         $where = $this->dep('filtro')->get_sql_where();
         $datos = toba::consulta_php('co_consejodirectivo')->get_cd_resoluciones($where);
+        /*
         foreach ($datos as $dat) {
             if ($dat['archivo_path'] != '') {
                 // el 27 es para que corte la cadena despues del caracter 27, de /home/fce/consejodirectivo/
@@ -33,7 +34,8 @@ class ci_cd_resoluciones extends docu_ci
             }
             $aux[] = $dat;
         }
-        $cuadro->set_datos($aux);        
+         * */
+        $cuadro->set_datos($datos);        
     }
     
     function evt__cuadro__seleccion($seleccion)
