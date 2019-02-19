@@ -77,10 +77,9 @@ class ci_cd_resoluciones extends docu_ci
             // Mover los archivos subidos al servidor del directorio temporal PHP a uno propio.
             move_uploaded_file($datos['archivo']['tmp_name'], $destino); 
             $datos['archivo_path'] = $destino; 
-
-            $this->tabla('cd_resoluciones')->set($datos);
-            $this->tabla('cd_resoluciones')->sincronizar();
         }      
+        $this->tabla('cd_resoluciones')->set($datos);
+        $this->tabla('cd_resoluciones')->sincronizar();
     }
     
     //-----------------------------------------------------------------------------------
