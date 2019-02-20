@@ -8,7 +8,7 @@ class co_consejodirectivo
         $sql = "SELECT *
                 FROM cd_resoluciones
                 WHERE $where
-                ORDER BY resolucion_numero::Int
+                ORDER BY ciclo_lectivo DESC, resolucion_numero::Int
             
         ";
 	return toba::db()->consultar($sql);
@@ -20,6 +20,7 @@ class co_consejodirectivo
         $sql = "SELECT *
                 FROM cd_disposiciones
                 WHERE $where
+                ORDER BY ciclo_lectivo DESC, disposicion_numero::Int
             
         ";
 	return toba::db()->consultar($sql);
@@ -31,6 +32,7 @@ class co_consejodirectivo
         $sql = "SELECT *
                 FROM cd_actas
                 WHERE $where
+                ORDER BY ciclo_lectivo DESC, acta_numero::Int
             
         ";
 	return toba::db()->consultar($sql);
