@@ -28,7 +28,7 @@ class ci_cd_resoluciones extends docu_ci
                 // el 27 es para que corte la cadena despues del caracter 27, de /home/fce/consejodirectivo/
                 $nombre = substr($dat['archivo_path'],27);
                 $dir_tmp = toba::proyecto()->get_www_temp();
-                if(!file_exists($dir_tmp['path']."/".$nombre));
+                if(!file_exists($dir_tmp['path']."/".$nombre))
                     exec("cp '". $dat['archivo_path']. "' '" .$dir_tmp['path']."/".$nombre."'");
                 $temp_archivo = toba::proyecto()->get_www_temp($nombre);
                 $dat['resolucion'] = "<a href='{$temp_archivo['url']}'target='_blank'>".$dat['resolucion_numero']."</a>";    
@@ -60,7 +60,7 @@ class ci_cd_resoluciones extends docu_ci
             // el 19 es para que corte la cadena despues del caracter 19, de /home/fce/consejodirectivo/
             $nombre = substr($datos['archivo_path'],27);
             $dir_tmp = toba::proyecto()->get_www_temp();
-            if(!file_exists($dir_tmp['path']."/".$nombre));
+            if(!file_exists($dir_tmp['path']."/".$nombre))
                 exec("cp '". $datos['archivo_path']. "' '" .$dir_tmp['path']."/".$nombre."'");
             $temp_archivo = toba::proyecto()->get_www_temp($nombre);
             $tamanio = round(filesize($temp_archivo['path']) / 1024);
