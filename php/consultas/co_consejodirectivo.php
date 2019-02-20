@@ -8,7 +8,7 @@ class co_consejodirectivo
         $sql = "SELECT *
                 FROM cd_resoluciones
                 WHERE $where
-                ORDER BY resolucion_numero
+                ORDER BY resolucion_numero::Int
             
         ";
 	return toba::db()->consultar($sql);
