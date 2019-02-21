@@ -98,11 +98,11 @@ class ci_cd_actas extends docu_ci
             $datos['archivo_path'] = $destino; 
         }  
         if (isset($datos['audio']) or isset($datos['audio_path'])) {
-            $nombre_archivo = $datos['archivo']['name'];
+            $nombre_archivo = $datos['audio']['name'];
             $nombre_nuevo = 'acta_'.$datos['ciclo_lectivo'].'_'.$datos['acta_numero'].'.mp3';   
             $destino = '/home/fce/consejodirectivo/'.$nombre_nuevo;
             // Mover los archivos subidos al servidor del directorio temporal PHP a uno propio.
-            move_uploaded_file($datos['archivo']['tmp_name'], $destino); 
+            move_uploaded_file($datos['audio']['tmp_name'], $destino); 
             $datos['audio_path'] = $destino; 
         }           
         $this->tabla('cd_actas')->set($datos);
