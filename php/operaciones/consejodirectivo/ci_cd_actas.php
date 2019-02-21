@@ -31,6 +31,10 @@ class ci_cd_actas extends docu_ci
                 $temp_archivo = toba::proyecto()->get_www_temp($nombre);
                 $dat['acta'] = "<a href='{$temp_archivo['url']}'target='_blank'>".$dat['acta_numero']."</a>";    
             }
+            if ($dat['archivo_path'] != '') {
+                $dat['audio'] = 'S';
+            } else
+                $dat['audio'] = 'N';
             $aux[] = $dat;
         }
         $cuadro->set_datos($aux);        
