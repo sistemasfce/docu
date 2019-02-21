@@ -32,10 +32,14 @@ class ci_cd_actas extends docu_ci
                 $temp_archivo = toba::proyecto()->get_www_temp($nombre);
                 $dat['acta'] = "<a href='{$temp_archivo['url']}'target='_blank'>".$dat['acta_numero']."</a>";    
             }
-            if ($dat['audio_path'] != '') {
-                $dat['audio'] = 'S';
+            if ($dat['archivo_path'] != '') {
+                $dat['subio_pdf'] = 'S';
             } else
-                $dat['audio'] = 'N';
+                $dat['subio_pdf'] = 'N';
+            if ($dat['audio_path'] != '') {
+                $dat['subio_audio'] = 'S';
+            } else
+                $dat['subio_audio'] = 'N';
             $aux[] = $dat;
         }
         $cuadro->set_datos($aux);        
@@ -69,6 +73,17 @@ class ci_cd_actas extends docu_ci
             $datos['archivo_path'] = "<a href='{$temp_archivo['url']}'target='_blank'>Descargar archivo</a>";
             $datos['archivo'] = $nombre. ' - Tam.: '.$tamanio. ' KB';           
         }
+        if ($datos['audio_path'] != '') {
+            // el 19 es para que corte la cadena despues del caracter 19, de /home/fce/consejodirectivo/
+            $nombre = substr($datos['audio_path'],27);
+            $dir_tmp = toba::proyecto()->get_www_temp();
+            if(!file_exists($dir_tmp['path']."/".$nombre))
+                exec("cp '". $datos['audio_path']. "' '" .$dir_tmp['path']."/".$nombre."'");
+            $temp_archivo = toba::proyecto()->get_www_temp($nombre);
+            $tamanio = round(filesize($temp_archivo['path']) / 1024);
+            $datos['audio_path'] = "<a href='{$temp_archivo['url']}'target='_blank'>Descargar archivo</a>";
+            $datos['audio'] = $nombre. ' - Tam.: '.$tamanio. ' KB';           
+        }        
         $form->set_datos($datos);
     }
 
@@ -81,7 +96,15 @@ class ci_cd_actas extends docu_ci
             // Mover los archivos subidos al servidor del directorio temporal PHP a uno propio.
             move_uploaded_file($datos['archivo']['tmp_name'], $destino); 
             $datos['archivo_path'] = $destino; 
-        }     
+        }  
+        if (isset($datos['audio']) or isset($datos['audio_path'])) {
+            $nombre_archivo = $datos['archivo']['name'];
+            $nombre_nuevo = 'acta_'.$datos['ciclo_lectivo'].'_'.$datos['acta_numero'].'.mp3';   
+            $destino = '/home/fce/consejodirectivo/'.$nombre_nuevo;
+            // Mover los archivos subidos al servidor del directorio temporal PHP a uno propio.
+            move_uploaded_file($datos['archivo']['tmp_name'], $destino); 
+            $datos['audio_path'] = $destino; 
+        }           
         $this->tabla('cd_actas')->set($datos);
         $this->tabla('cd_actas')->sincronizar();
     }
