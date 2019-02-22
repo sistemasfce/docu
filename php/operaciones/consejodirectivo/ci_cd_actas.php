@@ -32,6 +32,15 @@ class ci_cd_actas extends docu_ci
                 $temp_archivo = toba::proyecto()->get_www_temp($nombre);
                 $dat['acta'] = "<a href='{$temp_archivo['url']}'target='_blank'>".$dat['acta_numero']."</a>";    
             }
+            if ($dat['audio_path'] != '') {
+                // el 27 es para que corte la cadena despues del caracter 27, de /home/fce/consejodirectivo/
+                $nombre = substr($dat['audio_path'],27);
+                $dir_tmp = toba::proyecto()->get_www_temp();
+                if(!file_exists($dir_tmp['path']."/".$nombre))
+                    exec("cp '". $dat['audio_path']. "' '" .$dir_tmp['path']."/".$nombre."'");
+                $temp_archivo = toba::proyecto()->get_www_temp($nombre);
+                $dat['audio'] = "<a href='{$temp_archivo['url']}'target='_blank'>".$dat['acta_numero']."</a>";    
+            }            
             if ($dat['archivo_path'] != '') {
                 $dat['subio_pdf'] = 'S';
             } else
