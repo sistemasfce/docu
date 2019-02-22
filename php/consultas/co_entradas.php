@@ -20,5 +20,5 @@ class co_entradas
     {
         $sql = "SELECT numero FROM entradas WHERE numero <> '' ORDER BY entrada DESC LIMIT 1";
         return toba::db()->consultar_fila($sql);
-    }
+    }   
 }
