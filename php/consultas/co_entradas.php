@@ -21,4 +21,11 @@ class co_entradas
         $sql = "SELECT numero FROM entradas WHERE numero <> '' ORDER BY entrada DESC LIMIT 1";
         return toba::db()->consultar_fila($sql);
     }   
+    
+    function get_pases_consejo()
+    {
+        $sql = "SELECT entradas.numero, entradas.asunto, pases.fecha FROM pases LEFT OUTER JOIN entradas ON pases.entrada = entradas.entrada"
+                . "  WHERE pase_tipo = 3";
+        return toba::db()->consultar($sql);
+    }    
 }
