@@ -22,10 +22,10 @@ class co_entradas
         return toba::db()->consultar_fila($sql);
     }   
     
-    function get_pases_consejo()
+    function get_pases_consejo($where)
     {
         $sql = "SELECT entradas.numero, entradas.asunto, pases.fecha FROM pases LEFT OUTER JOIN entradas ON pases.entrada = entradas.entrada"
-                . "  WHERE pase_tipo = 3";
+                . "  WHERE pase_tipo = 3 AND $where";
         return toba::db()->consultar($sql);
     }    
 }
