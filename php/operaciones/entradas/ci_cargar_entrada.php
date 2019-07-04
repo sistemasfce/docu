@@ -44,4 +44,19 @@ class ci_cargar_entrada extends docu_ci
     {
         $this->dep('relacion')->resetear();
     }
+    
+    function get_responsables()
+    {
+        $where = ' 1=1 ';
+        $perfil = toba::usuario()->get_perfiles_funcionales();
+        if ($perfil[0] == 'investigacion') {
+            $responsable = 2;
+            $where .= ' AND responsable =  '.$responsable;
+        }
+        if ($perfil[0] == 'academica') {
+            $responsable = 1;
+            $where .= ' AND responsable =  '.$responsable;
+        }
+        return toba::consulta_php('co_parametros')->get_responsables($where);
+    }
 }
