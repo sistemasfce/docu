@@ -20,9 +20,18 @@ class ci_modificar_entrada extends docu_ci
 
 	function conf__cuadro(docu_ei_cuadro $cuadro)
 	{
-		$where = $this->dep('filtro')->get_sql_where();
-		$datos = toba::consulta_php('co_entradas')->get_entradas($where);
-		$cuadro->set_datos($datos);
+            $where = $this->dep('filtro')->get_sql_where();
+            $perfil = toba::usuario()->get_perfiles_funcionales();
+            if ($perfil[0] == 'investigacion') {
+                $responsable = 2;
+                $where .= ' AND responsable =  '.$responsable;
+            }
+            if ($perfil[0] == 'academica') {
+                $responsable = 1;
+                $where .= ' AND responsable =  '.$responsable;
+            }
+            $datos = toba::consulta_php('co_entradas')->get_entradas($where);
+            $cuadro->set_datos($datos);
 	}
 	
 	function evt__cuadro__seleccion($seleccion)
