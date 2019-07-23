@@ -5,9 +5,11 @@ class co_salidas
     function get_salidas($where=null)
     {
 	if (!isset($where)) $where = '1=1';
-        $sql = "SELECT *
-                        
-		FROM salidas
+        $sql = "SELECT *,
+                    conceptos.descripcion as concepto_desc,
+                    destinos.descripcion as destino_desc   
+		FROM salidas LEFT OUTER JOIN conceptos ON salidas.concepto = conceptos.concepto
+                    LEFT OUTER JOIN destinos ON destinos.destino = destinos.destino
 		WHERE $where
                 ORDER BY fecha DESC, numero
         ";
