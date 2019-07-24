@@ -103,4 +103,22 @@ INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, i
 	NULL, --item_id
 	'280000174'  --item
 );
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'docu', --proyecto
+	'investigacion', --usuario_grupo_acc
+	NULL, --item_id
+	'280000229'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'docu', --proyecto
+	'investigacion', --usuario_grupo_acc
+	NULL, --item_id
+	'280000236'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'docu', --proyecto
+	'investigacion', --usuario_grupo_acc
+	NULL, --item_id
+	'280000237'  --item
+);
 --- FIN Grupo de desarrollo 280
