@@ -25,11 +25,11 @@ class ci_consultar_entradas extends docu_ci
         $perfil = toba::usuario()->get_perfiles_funcionales();
         if ($perfil[0] == 'investigacion') {
             $responsable = 2;
-            $where .= ' AND responsable =  '.$responsable;
+            $where .= ' AND entradas.responsable =  '.$responsable;
         }
         if ($perfil[0] == 'academica') {
             $responsable = 1;
-            $where .= ' AND responsable =  '.$responsable;
+            $where .= ' AND entradas.responsable =  '.$responsable;
         }
         $datos = toba::consulta_php('co_entradas')->get_entradas($where);
         $cuadro->set_datos($datos);

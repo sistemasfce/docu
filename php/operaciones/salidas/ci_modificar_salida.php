@@ -24,11 +24,11 @@ class ci_modificar_salida extends docu_ci
             $perfil = toba::usuario()->get_perfiles_funcionales();
             if ($perfil[0] == 'investigacion') {
                 $responsable = 2;
-                $where .= ' AND responsable =  '.$responsable;
+                $where .= ' AND salidas.responsable =  '.$responsable;
             }
             if ($perfil[0] == 'academica') {
                 $responsable = 1;
-                $where .= ' AND responsable =  '.$responsable;
+                $where .= ' AND salidas.responsable =  '.$responsable;
             }
             $datos = toba::consulta_php('co_salidas')->get_salidas($where);
             $cuadro->set_datos($datos);
