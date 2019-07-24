@@ -7,9 +7,15 @@ class co_entradas
 	if (!isset($where)) $where = '1=1';
         $sql = "SELECT entradas.*,
                         destinos.descripcion as destino_desc,
-                        entradas_tipos.descripcion as tipo_desc
+                        entradas_tipos.descripcion as tipo_desc,
+                        op1.apellido || ', ' || op1.nombres as recepcionista_desc,
+                        op2.apellido || ', ' || op2.nombres as operador_desc,
+                        responsables.descripcion as responsable_desc
 		FROM entradas LEFT OUTER JOIN destinos ON (entradas.destino = destinos.destino)
                 LEFT OUTER JOIN entradas_tipos ON (entradas.entrada_tipo = entradas_tipos.entrada_tipo)
+                LEFT OUTER JOIN operadores as op1 ON (entradas.recepcionista = op1.operador)
+                LEFT OUTER JOIN operadores as op2 ON (entradas.operador = op2.operador)
+                LEFT OUTER JOIN responsables ON (entradas.responsable = responsables.responsable)
 		WHERE $where
                 ORDER BY fecha DESC, numero
         ";
