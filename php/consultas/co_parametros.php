@@ -113,5 +113,16 @@ class co_parametros
                 ORDER BY ciclo_lectivo DESC
         ";
 	return toba::db()->consultar($sql);
-    }      
+    }     
+    
+    function get_resoluciones_tipos($where=null)
+    {
+	if (!isset($where)) $where = '1=1';
+        $sql = "SELECT *
+		FROM resoluciones_tipos
+		WHERE $where
+                ORDER BY resolucion_tipo
+        ";
+	return toba::db()->consultar($sql);
+    }    
 }
