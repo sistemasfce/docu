@@ -202,7 +202,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
-	'1', --formateo
+	'8', --formateo
 	NULL, --vinculo_indice
 	NULL, --no_ordenar
 	NULL, --mostrar_xls
@@ -227,7 +227,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'docu', --objeto_cuadro_proyecto
 	'280001114', --objeto_cuadro
 	'280002152', --objeto_cuadro_col
-	'tipo', --clave
+	'tipo_desc', --clave
 	'4', --orden
 	'Tipo', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo

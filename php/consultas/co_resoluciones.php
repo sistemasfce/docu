@@ -1,6 +1,6 @@
 <?php
  
-class co_entradas
+class co_resoluciones
 {
     function get_resoluciones($where=null)
     {
@@ -8,7 +8,7 @@ class co_entradas
         $sql = "SELECT *,
                         resoluciones_tipos.descripcion as tipo_desc
 		FROM resoluciones 
-                LEFT OUTER JOIN resoluciones_tipos ON (resoluciones.resoluciones_tipo = resoluciones_tipos.resolucion_tipo)
+                LEFT OUTER JOIN resoluciones_tipos ON (resoluciones.tipo = resoluciones_tipos.resolucion_tipo)
 		WHERE $where
                 ORDER BY fecha DESC
         ";
