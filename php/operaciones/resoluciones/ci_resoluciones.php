@@ -16,7 +16,16 @@ class ci_resoluciones extends docu_ci
 
     function evt__form__modificacion($datos)
     {
+        if (isset($datos['archivo']) or isset($datos['archivo_path'])) {
+            $nombre_archivo = $datos['archivo']['name'];
+            $nombre_nuevo = 'resol_'.$datos['ciclo_lectivo'].'_'.$datos['numero'].'.pdf';   
+            $destino = '/home/fce/docu/'.$nombre_nuevo;
+            // Mover los archivos subidos al servidor del directorio temporal PHP a uno propio.
+            move_uploaded_file($datos['archivo']['tmp_name'], $destino); 
+            $datos['archivo_path'] = $destino; 
+        }      
         $this->tabla('resoluciones')->set($datos);
+        //$this->tabla('resoluciones')->sincronizar();
     }
     
     function evt__procesar()
