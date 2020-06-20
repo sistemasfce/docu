@@ -136,7 +136,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280002149', --objeto_cuadro_col
 	'ciclo_lectivo', --clave
 	'1', --orden
-	'Ciclo lectivo', --titulo
+	'Año', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'0', --estilo
 	NULL, --ancho
@@ -167,7 +167,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280002150', --objeto_cuadro_col
 	'numero', --clave
 	'2', --orden
-	'Numero', --titulo
+	'Número', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
