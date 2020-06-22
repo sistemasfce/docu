@@ -67,12 +67,12 @@ class ci_modificar_resolucion extends docu_ci
     {
             $this->dep('relacion')->sincronizar();
             $this->dep('relacion')->resetear();
-            $this->set_pantalla('pant_seleccion');
+            $this->set_pantalla('pant_inicial');
     }
 
     function evt__cancelar()
     {
             $this->dep('relacion')->resetear();
-            $this->set_pantalla('pant_seleccion');
+            $this->set_pantalla('pant_inicial');
     }  
 }
