@@ -23,11 +23,11 @@ class ci_modificar_resolucion extends docu_ci
         $perfil = toba::usuario()->get_perfiles_funcionales();
         if ($perfil[0] == 'investigacion') {
             $responsable = 2;
-            $where .= ' AND entradas.responsable =  '.$responsable;
+            $where .= ' AND resoluciones.responsable =  '.$responsable;
         }
         if ($perfil[0] == 'academica') {
             $responsable = 1;
-            $where .= ' AND entradas.responsable =  '.$responsable;
+            $where .= ' AND resoluciones.responsable =  '.$responsable;
         }
         $datos = toba::consulta_php('co_resoluciones')->get_resoluciones($where);
         $cuadro->set_datos($datos);
