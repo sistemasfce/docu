@@ -75,4 +75,14 @@ class ci_modificar_resolucion extends docu_ci
             $this->dep('relacion')->resetear();
             $this->set_pantalla('pant_inicial');
     }  
+    
+    function evt__eliminar()
+    {
+            try {
+                $this->dep('relacion')->eliminar_todo();
+                $this->set_pantalla('pant_inicial');
+            } catch (toba_error $e) {
+                toba::notificacion()->agregar('No es posible eliminar la resol.');
+            }
+    }  
 }
